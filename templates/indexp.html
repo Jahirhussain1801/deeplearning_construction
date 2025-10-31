@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Safety Access Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylep.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Construction Site Access Control</h1>
+            <p>Hard Hat & Safety Vest Required</p>
+        </header>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-card">
+                    <h2>Safety Compliance Check</h2>
+                    <p class="upload-instruction">Upload a photo of construction personnel to verify safety equipment</p>
+
+                    <div class="file-upload-area">
+                        <input type="file" id="photo-file" class="file-input" accept="image/*" hidden>
+                        <div class="upload-box" onclick="document.getElementById('photo-file').click()">
+                            <div class="upload-icon">📷</div>
+                            <div class="upload-text">Click to upload photo</div>
+                            <div class="upload-subtext">or drag and drop</div>
+                        </div>
+                    </div>
+
+                    <button onclick="analyzePhoto()" class="btn btn-primary analyze-btn" disabled>
+                        Analyze Safety Compliance
+                    </button>
+                </div>
+
+                <div id="photo-result" class="result-container"></div>
+
+                <div id="analyzed-image-container" class="image-container" style="display: none;">
+                    <h3>Safety Analysis Result</h3>
+                    <img id="analyzed-image" class="analyzed-image">
+                </div>
+            </div>
+
+            <div class="status-section">
+                <div class="access-status-card">
+                    <div class="status-header">
+                        <h2>Access Status</h2>
+                        <div class="status-indicator" id="status-indicator">
+                            <span class="status-icon">⏳</span>
+                            <span class="status-text">Awaiting Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="safety-score">
+                        <div class="score-circle">
+                            <span id="safety-score">0%</span>
+                        </div>
+                        <div class="score-label">Safety Score</div>
+                    </div>
+
+                    <div class="requirements-check">
+                        <h3>Safety Requirements</h3>
+                        <div class="requirements-list">
+                            <div class="requirement-item" id="req-hard-hat">
+                                <span class="req-icon">⏳</span>
+                                <span class="req-text">Hard Hat</span>
+                            </div>
+                            <div class="requirement-item" id="req-vest">
+                                <span class="req-icon">⏳</span>
+                                <span class="req-text">Safety Vest</span>
+                            </div>
+                            <div class="requirement-item" id="req-score">
+                                <span class="req-icon">⏳</span>
+                                <span class="req-text">Score ≥ 50%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detection-stats">
+                        <h3>Detection Results</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item safe">
+                                <span class="stat-name">Hard Hats</span>
+                                <span class="stat-value" id="hard-hat-count">0</span>
+                            </div>
+                            <div class="stat-item safe">
+                                <span class="stat-name">Safety Vests</span>
+                                <span class="stat-value" id="vest-count">0</span>
+                            </div>
+                            <div class="stat-item unsafe">
+                                <span class="stat-name">No Hard Hat</span>
+                                <span class="stat-value" id="no-hard-hat-count">0</span>
+                            </div>
+                            <div class="stat-item unsafe">
+                                <span class="stat-name">No Safety Vest</span>
+                                <span class="stat-value" id="no-vest-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rules-info">
+                        <h3>Access Rules</h3>
+                        <div class="rules-list">
+                            <div class="rule-item">
+                                <span class="rule-icon">✅</span>
+                                <span class="rule-text">Hard hat must be worn</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-icon">✅</span>
+                                <span class="rule-text">Safety vest must be worn</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-icon">✅</span>
+                                <span class="rule-text">Minimum safety score: 50%</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-icon">🚫</span>
+                                <span class="rule-text">Violation of any rule = ACCESS DENIED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scriptp.js') }}"></script>
+</body>
+</html>

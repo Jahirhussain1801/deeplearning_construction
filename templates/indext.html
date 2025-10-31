@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Safety Access Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylet.css') }}">
+</head>
+<body>
+    <!-- Background Container -->
+    <div class="background-container"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>🏗️ Construction Safety Access Control</h1>
+                <p>Live Surveillance & Safety Compliance Monitoring</p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Surveillance Section -->
+            <div class="surveillance-section">
+                <div class="card">
+                    <h2>📹 Live Surveillance</h2>
+                    <div class="video-container">
+                        <img src="{{ url_for('video_feed') }}" alt="Live Surveillance" id="video-feed">
+                        <div class="live-indicator">
+                            <span class="live-dot"></span>
+                            LIVE
+                        </div>
+                    </div>
+
+                    <div class="capture-controls">
+                        <button onclick="captureAndAnalyze()" class="btn btn-capture" id="capture-btn">
+                            📸 CAPTURE & ANALYZE SAFETY
+                        </button>
+                        <div class="capture-info">
+                            Position personnel in frame and click to analyze safety compliance
+                        </div>
+                    </div>
+
+                    <div class="upload-section">
+                        <h3>📁 Or Upload Existing Photo</h3>
+                        <div class="file-upload-area">
+                            <input type="file" id="photo-file" class="file-input" accept="image/*" hidden>
+                            <div class="upload-box" id="upload-box" onclick="document.getElementById('photo-file').click()">
+                                <div class="upload-icon">📁</div>
+                                <div class="upload-text">Click to upload photo</div>
+                                <div class="upload-subtext">Supports JPG, PNG, BMP</div>
+                            </div>
+                        </div>
+
+                        <button onclick="analyzeUploadedPhoto()" class="btn btn-secondary" id="analyze-btn" disabled>
+                            🔍 ANALYZE UPLOADED PHOTO
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="photo-result" class="result-container"></div>
+
+                <div id="analyzed-image-container" class="image-container" style="display: none;">
+                    <h3>🖼️ Safety Analysis Result</h3>
+                    <img id="analyzed-image" class="analyzed-image">
+                </div>
+            </div>
+
+            <!-- Status Section -->
+            <div class="status-section">
+                <div class="card">
+                    <div class="status-header">
+                        <h2>🔒 Access Control Status</h2>
+                        <div class="status-indicator" id="status-indicator">
+                            <span class="status-icon">📷</span>
+                            <span class="status-text">READY FOR CAPTURE</span>
+                        </div>
+                    </div>
+
+                    <!-- Safety Score -->
+                    <div class="safety-score">
+                        <div class="score-circle">
+                            <span id="safety-score">0%</span>
+                        </div>
+                        <div class="score-label">Safety Compliance Score</div>
+                    </div>
+
+                    <!-- Requirements Check -->
+                    <div class="requirements-check">
+                        <h3>✅ Safety Requirements</h3>
+                        <div class="requirements-list">
+                            <div class="requirement-item" id="req-hard-hat">
+                                <span class="req-icon">⏳</span>
+                                <span class="req-text">Hard Hat Detection</span>
+                            </div>
+                            <div class="requirement-item" id="req-vest">
+                                <span class="req-icon">⏳</span>
+                                <span class="req-text">Safety Vest Detection</span>
+                            </div>
+                            <div class="requirement-item" id="req-score">
+                                <span class="req-icon">⏳</span>
+                                <span class="req-text">Minimum Score: 50%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detection Statistics -->
+                    <div class="detection-stats">
+                        <h3>📊 Detection Results</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item safe">
+                                <span class="stat-name">Hard Hats</span>
+                                <span class="stat-value" id="hard-hat-count">0</span>
+                            </div>
+                            <div class="stat-item safe">
+                                <span class="stat-name">Safety Vests</span>
+                                <span class="stat-value" id="vest-count">0</span>
+                            </div>
+                            <div class="stat-item unsafe">
+                                <span class="stat-name">No Hard Hat</span>
+                                <span class="stat-value" id="no-hard-hat-count">0</span>
+                            </div>
+                            <div class="stat-item unsafe">
+                                <span class="stat-name">No Safety Vest</span>
+                                <span class="stat-value" id="no-vest-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rules Information -->
+                    <div class="rules-info">
+                        <h3>📋 Site Access Rules</h3>
+                        <div class="rules-list">
+                            <div class="rule-item">
+                                <span class="rule-icon">✅</span>
+                                <span class="rule-text">Hard hat must be properly worn</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-icon">✅</span>
+                                <span class="rule-text">Safety vest must be visible</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-icon">✅</span>
+                                <span class="rule-text">Minimum safety score: 50%</span>
+                            </div>
+                            <div class="rule-item">
+                                <span class="rule-icon">🚫</span>
+                                <span class="rule-text">Violation of any rule = ACCESS DENIED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p>🏗️ Construction Safety Monitoring System | Powered by AI Safety Detection</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='scriptt.js') }}"></script>
+</body>
+</html>
