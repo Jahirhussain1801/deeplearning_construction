@@ -1,36 +1,47 @@
+# 🦺 Construction Worker Safety Detection using YOLOv8  
 
-Perfect 👍 Here’s a professional and clean README paragraph you can use for your YOLOv8 Construction Worker Safety Detection project — ideal for GitHub 👇
+This project leverages **YOLOv8 (You Only Look Once)** — a state-of-the-art deep learning model for object detection — to ensure safety compliance on construction sites.  
+The system automatically detects whether workers are wearing essential safety equipment such as **helmets, vests, and safety glasses**, helping improve workplace safety and reduce accidents.  
 
-🦺 Construction Worker Safety Detection using YOLOv8
+---
 
-This project leverages YOLOv8 (You Only Look Once) — a state-of-the-art deep learning model for object detection — to ensure safety compliance on construction sites. The system automatically detects whether workers are wearing essential safety equipment such as helmets, vests, and safety glasses, helping to improve workplace safety and reduce accidents.
+## 🧠 Overview  
 
-The model was trained on a custom dataset curated from real-world construction images. Data was annotated using Roboflow, and the YOLOv8 model was fine-tuned through transfer learning with data augmentation techniques (flipping, rotation, lighting variations) to improve accuracy and robustness.
+The model was trained on a **custom dataset** curated from real-world construction images.  
+Data was annotated using **Roboflow**, and the YOLOv8 model was **fine-tuned through transfer learning** with data augmentation techniques (flipping, rotation, lighting variations) to improve robustness.  
 
-For deployment, the system integrates Python, Flask, HTML, CSS, and JavaScript to create a user-friendly web interface. It supports real-time detection using OpenCV, making it suitable for integration with CCTV feeds or on-site monitoring systems.
+For deployment, the system integrates **Python, Flask, HTML, CSS, and JavaScript** to create a web-based interface.  
+It supports **real-time detection** using **OpenCV**, making it suitable for integration with CCTV feeds or on-site cameras.  
 
-🔧 Key Features
+---
 
-Multi-class detection: Helmet, Vest, and Person
+## 🔧 Key Features  
 
-Real-time object detection via OpenCV
+- 🧍 Detects multiple safety elements: **Helmet, Vest, and Person**  
+- ⚡ Real-time detection using **OpenCV**  
+- 🌐 Web app built using **Flask + HTML + CSS + JS**  
+- 🔁 Transfer learning and data augmentation for improved accuracy  
+- 🧩 Easily extendable for other PPE or industrial domains  
+- 🚨 Can trigger alerts when safety gear is missing  
 
-Flask-based web interface with responsive frontend (HTML, CSS, JS)
+---
 
-Easily extendable to other safety gear or domains
+## 🧰 Tech Stack  
 
-Deployable for live video surveillance or offline footage analysis
+| Category | Tools & Libraries |
+|-----------|------------------|
+| Model | YOLOv8 (Ultralytics) |
+| Programming | Python |
+| Frameworks | Flask, OpenCV |
+| Frontend | HTML, CSS, JavaScript |
+| Annotation | Roboflow |
+| Training | Transfer Learning, Hyperparameter Tuning |
 
-🧠 Tech Stack
+---
 
-YOLOv8, Python, OpenCV
+## 🚀 Installation  
 
-Flask, HTML, CSS, JavaScript
-
-Roboflow (data labeling)
-
-Transfer Learning and Hyperparameter Tuning
-
-🚀 Goal
-
-To build an AI-driven safety monitoring system that enhances construction site safety through intelligent automation — bridging the gap between Computer Vision and real-world impact.
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/yourusername/Construction-Safety-YOLOv8.git
+   cd Construction-Safety-YOLOv8
